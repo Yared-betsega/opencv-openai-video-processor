@@ -1,0 +1,392 @@
+/* ADD CUSTOM CSS TO THE PAGE - THIS AFFECTS ALL DEVICES */
+.titles {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #171717;
+  opacity: 0.8;
+}
+.sample-questions {
+  margin-top: 60px !important;
+}
+
+#response {
+  margin-top: 20px !important;
+}
+#response img,
+#response video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+*#dm .dmInner div.u_1702399324 {
+}
+.App {
+  background-color: #212121 !important;
+  color: white !important;
+  /* height: 100vh !important; */
+}
+
+body {
+  font-family: Arial, sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #212121 !important;
+}
+.container {
+  display: flex !important;
+  min-height: fit-content !important;
+  margin: 20px !important;
+}
+#filePreviewBox {
+  display: flex;
+  justify-content: center;
+}
+.file-preview,
+.output {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 10px 0 !important;
+  padding: 10px !important;
+}
+.file-preview h1,
+.output h1 {
+  text-align: center !important;
+}
+.output div {
+  text-align: center !important;
+  height: 400px !important;
+  overflow-y: scroll !important;
+  opacity: 0.9;
+}
+.form {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+}
+.form-container {
+  width: 50%;
+  height:40px;
+  position: absolute;
+  bottom: 40px;
+  z-index: 9999;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5%;
+  background-color: #212121;
+  border: 1px solid #3f3f3f;
+  border-radius: 20px;
+}
+.upload-button {
+    padding: 10px;
+}
+.text-input {
+  height: 60%;
+  color: white;
+  font-size: 16px;
+  width: 100% !important;
+  padding: 10px !important;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  opacity: 0.8;
+  text-align: start !important;
+}
+.file-input {
+  margin-bottom: 10px !important;
+}
+.submit-button {
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 2px 5px !important;
+  margin: 10px;
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+}
+.loader {
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid gray;
+  border-bottom: 5px solid gray;
+  width: 24px;
+  height: 24px;
+
+  margin: 10px;
+  
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.file-preview img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+#preview-element {
+  height: 400px;
+}
+
+.dropdown-wrapper {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.dropdown-centered {
+  width: 50%;
+  height:40px;
+  position: absolute;
+  bottom: 100px;
+  z-index: 99999;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5%;
+  background-color: #212121;
+  border-radius: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 3px 20px !important;
+
+}
+
+.dropbtn {
+  background-color: #191919;
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  min-width: 300px;
+  opacity: 0.8;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  font-size: 14px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: lightgray;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+#email-prompt {
+  color: black !important;
+}
+
+#userEmail {
+  height: 60%;
+  font-size: 16px;
+  padding: 10px !important;
+  border: 1px solid #3f3f3f !important;
+  border-radius: 8px;
+  background-color: transparent;
+  outline: none;
+  opacity: 0.8;
+  text-align: start !important;
+}
+
+.email-submit-button {
+  height: 60%;
+  background-color: #333 !important;
+  border: 1px solid transparent !important;
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  padding: 10px !important;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.usage-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.usage {/* Two entries per row */
+  margin-bottom: 20px;
+  border: 1px solid #3f3f3f !important;
+  border-radius: 20px;
+  padding: 20px;
+}
+.usage-data {
+  margin-top: 130px;
+  padding: 20px !important;
+  color: white !important;
+  opacity: 0.9;
+}
+.usage-data-wrapper {
+  width: 100%;
+}
+.usage {
+  /* width: 100%; */
+  display: flex;
+}
+.question-container, .answer-container {
+  width: 48%;
+  padding: 5px 10px !important;
+  display: flex;
+}
+.uploaded-file {
+  height: 250px;
+  width: 58% !important;
+  margin-right: 1% !important;
+  align-items:start;
+
+ 
+}
+.uploaded-file-content {
+  max-width: 100%;
+  height: 100%;
+}
+#questionText {
+  height: 250px;
+  width: 38% !important;
+  margin-right: 1% !important;
+}
+.answer-container {
+  overflow-y: scroll;
+  max-height: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .titles {
+    font-size: 18px;
+  }
+  .entry {
+    width: 100%;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .sample-questions {
+    margin-top: 140px !important;
+  }
+  #preview-element {
+    max-width: 100%;
+    height: auto; 
+    object-fit: contain;
+  }
+  .file-preview,
+  .output {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .output div {
+    min-height: 200px !important;
+    max-height: 400px !important;
+    height: auto !important;
+  }
+  .file-preview div {
+    min-height: 200px !important;
+    max-height: 300px !important;
+    height: auto !important;
+  }
+  .form-container {
+    width: 90%;
+  }
+  .text-input {
+    font-size: 15px;
+  }
+  .modal-content {
+    font-size: 14px;
+  }
+
+  .usage {
+    flex-direction: column;
+    /* width: 100%; */
+    padding: 10px;
+  }
+  .question-container, .answer-container {
+    width: 100% !important;
+    padding: 5px !important;
+    flex-direction: column;
+  }
+  .uploaded-file, #questionText {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  #questionText {
+    height: auto;
+  }
+
+  .dropdown-centered {
+    bottom: 110px;
+    flex-direction: column;
+  }
+  .text-input {
+    font-size: 12px;
+  }
+  .dropbtn {
+    font-size: 12px;
+    padding: 5px !important;
+  }
+}

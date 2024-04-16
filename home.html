@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div id="app" class="App">
+      <div class="container">
+        <div id="filePreview" class="file-preview">
+          <h2 class="titles">Uploaded File</h2>
+          <div id="filePreviewBox"></div>
+        </div>
+        <div class="output">
+          <h2 class="titles">Output</h2>
+          <div id="outputText"></div>
+        </div>
+      </div>
+
+      <div class="dropdown-wrapper">
+        <div class="dropdown-centered">
+          <div class="dropdown">
+            <button id="videobtn" class="dropbtn">
+              Try Sample Questions for Video ⯆
+            </button>
+            <div id="video-content" class="dropdown-content">
+              <a href="#"> What was the main topic of the video? </a>
+              <a href="#"> Who were the key speakers? </a>
+              <a href="#"> What were the 3 main points discussed? </a>
+              <a href="#"> Describe a specific scene from the video. </a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button id="imagebtn" class="dropbtn">
+              Try Sample Questions for Image ⯆
+            </button>
+            <div id="image-content" class="dropdown-content">
+              <a href="#"> Describe the main idea of this image in your words? </a>
+              <a href="#"> Translate the text in this image to Amharic. </a>
+              <a href="#"> Extract the text in the image? </a>
+              <a href="#"> Describe a specific part from the image. </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="form" class="form">
+        <div class="form-container">
+          <input id="fileInput" class="file-input" type="file" hidden />
+          <label for="fileInput" class="upload-button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9 7C9 4.23858 11.2386 2 14 2C16.7614 2 19 4.23858 19 7V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9C5 8.44772 5.44772 8 6 8C6.55228 8 7 8.44772 7 9V15C7 17.7614 9.23858 20 12 20C14.7614 20 17 17.7614 17 15V7C17 5.34315 15.6569 4 14 4C12.3431 4 11 5.34315 11 7V15C11 15.5523 11.4477 16 12 16C12.5523 16 13 15.5523 13 15V9C13 8.44772 13.4477 8 14 8C14.5523 8 15 8.44772 15 9V15C15 16.6569 13.6569 18 12 18C10.3431 18 9 16.6569 9 15V7Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </label>
+          <textarea
+            id="textInput"
+            class="text-input"
+            placeholder="Message ChatGPT"
+          ></textarea>
+          <div id="questionSubmitButton">
+            <button
+              type="submit"
+              class="submit-button"
+              id="questionSubmitButtonAction"
+            >
+              <span class="" data-state="closed"
+                ><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 11L12 6L17 11M12 18V7"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path></svg
+              ></span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <div id="emailForm" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()"> × </span>
+          <h2 id="email-prompt">Provide Your Email</h2>
+          <form onsubmit="submitEmail(event)">
+            <input
+              type="email"
+              id="userEmail"
+              placeholder="Enter your email"
+              required=""
+            />
+            <button type="submit" class="email-submit-button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="usage-data">
+      <h2>Usage Data History</h2>
+      <div id="usageDataWrapper" class="usage-data-wrapper">
+        <div class="usage">
+          <div class="question-container">
+            <div id="uploadedFile" class="uploaded-file"></div>
+            <div id="questionText">Question</div>
+          </div>
+          <div id="answerText" class="answer-container"></div>
+        </div>
+      </div>
+
+      <div id="usageData" class="usage-container"></div>
+    </div>
+    <script src="home.js">
+      //<![CDATA[
+
+      //]]>
+    </script>
+  </body>
+</html>
