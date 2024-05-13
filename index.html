@@ -21,7 +21,7 @@
 
       <div class="dropdown-wrapper">
         <div class="dropdown-centered">
-          <div class="dropdown">
+          <div class="dropdown large-item">
             <button id="videobtn" class="dropbtn">
               Try Sample Questions for Video ⯆
             </button>
@@ -32,7 +32,7 @@
               <a href="#"> Describe a specific scene from the video. </a>
             </div>
           </div>
-          <div class="dropdown">
+          <div class="dropdown large-item">
             <button id="imagebtn" class="dropbtn">
               Try Sample Questions for Image ⯆
             </button>
@@ -41,6 +41,18 @@
               <a href="#"> Translate the text in this image to Amharic. </a>
               <a href="#"> Extract the text in the image? </a>
               <a href="#"> Describe a specific part from the image. </a>
+            </div>
+          </div>
+          <div class="dropdown small-item">
+            <button id="apibutton" class="dropbtn">
+              OPENAI ⯆
+            </button>
+            <div id="api-content" class="dropdown-content">
+              <a href="#">OPENAI</a>
+              <a href="#">CLAUDE_ANTHROPIC</a>
+              <a href="#">AWS_RECOGNITION</a>
+              <a href="#">GOOGLE_VISION</a>
+              <a href="#">ASTICA</a>
             </div>
           </div>
         </div>
@@ -109,6 +121,7 @@
 
     <div class="usage-data">
       <h2>Usage Data History</h2>
+      <hr class="horizontal-line">
       <div id="usageDataWrapper" class="usage-data-wrapper">
         <div class="usage">
           <div class="question-container">

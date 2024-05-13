@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("text", text);
     formData.append("file", file);
     formData.append("email", userEmail);
+    formData.append("selected_api", selected_api);
 
     var button = document.getElementById("questionSubmitButton");
     var submitButton = document.getElementById("questionSubmitButtonAction");
@@ -107,11 +108,13 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        if (data.hasOwnProperty("error")) {
-          outputText.innerText = data.error.message;
+        console.log("Data: ", data);
+        if (data.statusCode != 200) {
+          outputText.innerText = data.message;
+          button.removeChild(button.lastChild);
+          submitButton.style.display = "block";
         } else {
-          const html = data.choices[0].message.content;
+          const html = data.answerText;
           const newlineIndex = html.indexOf("\n");
           const innerContent = html.substring(
             newlineIndex + 1,
@@ -160,12 +163,17 @@ const dropbtn = document.querySelector("#videobtn");
 const dropdownContent = document.querySelector("#video-content");
 const dropbtnImage = document.querySelector("#imagebtn");
 const dropdownContentImage = document.querySelector("#image-content");
+const dropbtnApi = document.querySelector("#apibutton");
+const dropdownContentApi = document.querySelector("#api-content");
+let selected_api = "OPENAI";
+
 let isOpen = false;
 dropbtn.addEventListener("click", function () {
   isOpen = !isOpen;
   if (isOpen) {
     dropdownContent.style.display = "block";
     dropdownContentImage.style.display = "none";
+    dropdownContentApi.style.display = "none";
     isOpenImage = false;
   } else {
     dropdownContent.style.display = "none";
@@ -186,6 +194,7 @@ dropbtnImage.addEventListener("click", function () {
   if (isOpenImage) {
     dropdownContentImage.style.display = "block";
     dropdownContent.style.display = "none";
+    dropdownContentApi.style.display = "none";
     isOpen = false;
   } else {
     dropdownContentImage.style.display = "none";
@@ -200,10 +209,33 @@ dropdownContentImageLinks.forEach((link) => {
     document.getElementById("textInput").value = selectedText;
   });
 });
+
+let isOpenApi = false;
+dropbtnApi.addEventListener("click", function () {
+  isOpenApi = !isOpenApi;
+  if (isOpenApi) {
+    dropdownContentApi.style.display = "block";
+    dropdownContent.style.display = "none";
+    dropdownContentImage.style.display = "none";
+    isOpen = false;
+    isOpenImage = false;
+  } else {
+    dropdownContentApi.style.display = "none";
+  }
+});
+const dropdownContentApiLinks = dropdownContentApi.querySelectorAll("a");
+dropdownContentApiLinks.forEach((link) => {
+  link.addEventListener("click", function () {
+    isOpenApi = false; // Close dropdown on any link click
+    dropdownContentApi.style.display = "none";
+    selected_api = this.textContent;
+    const apiButton = document.querySelector("#apibutton");
+    apiButton.innerText = selected_api + " ⯆";
+  });
+});
+
 function renderUsageData(email) {
-  var url =
-    "https://image-processor-a44i.onrender.com/usage?email=" +
-    encodeURIComponent(email);
+  var url = "https://image-processor-a44i.onrender.com/usage?email=" + encodeURIComponent(email);
   fetch(url, {
     method: "GET",
   })
@@ -254,12 +286,28 @@ function renderData(usageData) {
     previewFile.classList.add("uploaded-file-content");
     uploadedFileContainer.appendChild(previewFile);
 
-    var questionTextContainer = document.createElement("div");
-    questionTextContainer.id = "questionText";
-    questionTextContainer.textContent = data.questionText;
+    var questionDataContainer = document.createElement("div");
+    questionDataContainer.id = "questionText";
+    questionDataContainer.style.display = 'flex';
+    questionDataContainer.style.flexDirection = 'column';
 
-    questionContainer.appendChild(uploadedFileContainer);
-    questionContainer.appendChild(questionTextContainer);
+    var questionTextContainer = document.createElement("div");
+    questionTextContainer.innerHTML = "Prompt:  " + `<span>${data.questionText}</span>`;
+
+    var date = formatDate(data.date);
+    var dateContainer = document.createElement("p");
+    dateContainer.classList.add('date-container', 'metadata');
+    dateContainer.textContent = "Time: " + date;
+
+    var modelContainer = document.createElement("p");
+    modelContainer.classList.add('model-container', 'metadata');
+    modelContainer.innerText = "Model: " + data.model;
+
+    questionDataContainer.appendChild(questionTextContainer);
+    questionDataContainer.appendChild(dateContainer);
+    questionDataContainer.appendChild(modelContainer);
+
+    questionContainer.appendChild(questionDataContainer);
 
     var answerContainer = document.createElement("div");
     answerContainer.id = "answerText";
@@ -269,9 +317,25 @@ function renderData(usageData) {
     const innerContent = html.substring(newlineIndex + 1, html.length - 3);
     answerContainer.innerHTML = innerContent;
 
+    entry.appendChild(uploadedFileContainer);
     entry.appendChild(questionContainer);
     entry.appendChild(answerContainer);
     var firstChild = container.firstChild;
     container.insertBefore(entry, firstChild);
   });
+}
+
+function formatDate(date) {
+  const now = new Date(date);
+
+  const dateOptions = { month: "long", day: "numeric", year: "numeric" };
+
+  const formattedDate = now.toLocaleDateString("en-US", dateOptions);
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+
+  const formattedDateTime = `${formattedDate}, ${hours}:${minutes}:${seconds}`;
+
+  return formattedDateTime;
 }

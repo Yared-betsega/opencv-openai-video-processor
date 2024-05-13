@@ -27,11 +27,16 @@
 }
 
 body {
-  font-family: Arial, sans-serif !important;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0 !important;
   padding: 0 !important;
   background-color: #212121 !important;
+  line-height: 1.58 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.6px;
 }
+
+
 .container {
   display: flex !important;
   min-height: fit-content !important;
@@ -55,7 +60,7 @@ body {
 .output div {
   text-align: center !important;
   height: 400px !important;
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
   opacity: 0.9;
 }
 .form {
@@ -145,7 +150,7 @@ body {
   justify-content: center !important;
 }
 .dropdown-centered {
-  width: 50%;
+  width: 60%;
   height:40px;
   position: absolute;
   bottom: 100px;
@@ -161,29 +166,39 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
-  margin: 3px 20px !important;
-
+  margin: 3px 5px !important;
+  
 }
 
 .dropbtn {
   background-color: #191919;
   color: white;
   padding: 8px;
-  font-size: 14px;
   border: none;
+  font-size: 12px;
   cursor: pointer;
-  min-width: 300px;
+  min-width: 250px;
   opacity: 0.8;
+  letter-spacing: 0.8px;
+  border-radius: 8px;
+
 }
+/* 
+.large-item {
+  width: 40% !important;
+}
+
+.small-item {
+  width: 20% !important;
+} */
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 300px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  font-size: 14px;
   max-height: 150px;
   overflow-y: auto;
 }
@@ -209,6 +224,13 @@ body {
   height: 100%;
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+textarea {
+  scrollbar-width: 0px;
+}
+textarea::-webkit-scrollbar {
+  display: none;
 }
 
 /* Modal Content */
@@ -270,49 +292,79 @@ body {
 }
 
 .usage {/* Two entries per row */
+  background-color: #333;
+  box-shadow: 2px 2px 4px 2px rgb(55, 55, 55) inset;
   margin-bottom: 20px;
+  margin-top: 30px !important;
   border: 1px solid #3f3f3f !important;
   border-radius: 20px;
   padding: 20px;
 }
 .usage-data {
   margin-top: 130px;
-  padding: 20px !important;
+  padding: 70px !important;
   color: white !important;
   opacity: 0.9;
 }
 .usage-data-wrapper {
   width: 100%;
 }
+.horizontal-line {
+  border: none; 
+  height: 1px;
+  background-color: #3f3f3f;
+}
+
 .usage {
   /* width: 100%; */
   display: flex;
 }
-.question-container, .answer-container {
-  width: 48%;
+.question-container, .answer-container, .uploaded-file {
+  width: 100%;
   padding: 5px 10px !important;
   display: flex;
+  line-height: 1.5rem;
+  overflow-y: auto;
+}
+
+.question-container, .answer-container{
+  border: 1px solid #3f3f3f;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+p {
+  padding: 0px;
+  margin: 0px;
 }
 .uploaded-file {
   height: 250px;
-  width: 58% !important;
+  /* width: 58% !important; */
   margin-right: 1% !important;
   align-items:start;
-
- 
 }
 .uploaded-file-content {
   max-width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 #questionText {
   height: 250px;
-  width: 38% !important;
+  /* width: 38% !important; */
   margin-right: 1% !important;
 }
+
+.metadata{
+  font-size: 12px ! important;
+  opacity: 0.8;
+  margin: 0px;
+  margin-top: 5px;
+}
+
 .answer-container {
-  overflow-y: scroll;
   max-height: 250px;
+  text-align: start !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -363,16 +415,18 @@ body {
     /* width: 100%; */
     padding: 10px;
   }
+  .usage-data {
+    padding: 20px !important;
+  }
   .question-container, .answer-container {
     width: 100% !important;
     padding: 5px !important;
     flex-direction: column;
   }
   .uploaded-file, #questionText {
-    width: 100% !important;
+    width: fit-content  !important;
     max-width: 100% !important;
     margin-bottom: 10px;
-    text-align: justify;
   }
   #questionText {
     height: auto;
@@ -386,7 +440,6 @@ body {
     font-size: 12px;
   }
   .dropbtn {
-    font-size: 12px;
     padding: 5px !important;
   }
 }
