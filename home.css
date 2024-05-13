@@ -416,12 +416,14 @@ p {
     padding: 10px;
   }
   .usage-data {
-    padding: 20px !important;
+    padding: 10px !important;
   }
   .question-container, .answer-container {
     width: 100% !important;
     padding: 5px !important;
     flex-direction: column;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .uploaded-file, #questionText {
     width: fit-content  !important;
