@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
           button.removeChild(button.lastChild);
           submitButton.style.display = "block";
           renderUsageData(userEmail);
+          showNotifier()
         }
       })
       .catch((error) => {
@@ -338,4 +339,19 @@ function formatDate(date) {
   const formattedDateTime = `${formattedDate}, ${hours}:${minutes}:${seconds}`;
 
   return formattedDateTime;
+}
+
+function showNotifier() {
+  var userEmail = getCookie("userEmail");
+  const notifier = document.getElementById('notifier');
+  notifier.innerText = `Email with the results is sent to ${userEmail}!`
+  notifier.classList.remove('hidden');
+  notifier.classList.add('show');
+
+  setTimeout(() => {
+      notifier.classList.remove('show');
+      setTimeout(() => {
+          notifier.classList.add('hidden');
+      }, 500); // Wait for the fade-out transition to complete
+  }, 3000);
 }

@@ -367,6 +367,33 @@ p {
   text-align: start !important;
 }
 
+.notifier-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#notifier {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  margin: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10000;
+}
+
+#notifier.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .titles {
     font-size: 18px;
